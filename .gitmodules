@@ -1,0 +1,12 @@
+[submodule "framework"]
+	path = framework
+	url = git@github.com:yiisoft/yii2-framework.git
+[submodule "app/application/vendor/yiisoft/jquery-pjax"]
+	path = app/application/vendor/yiisoft/jquery-pjax
+	url = git@github.com:yiisoft/jquery-pjax.git
+[submodule "app/application/vendor/yiisoft/jquery"]
+	path = app/application/vendor/yiisoft/jquery
+	url = git@github.com:yiisoft/jquery.git
+[submodule "app/application/vendor/twbs/bootstrap"]
+	path = app/application/vendor/twbs/bootstrap
+	url = git@github.com:twbs/bootstrap.git
