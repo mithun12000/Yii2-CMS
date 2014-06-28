@@ -13,3 +13,30 @@
 [submodule "app/application/vendor/htmlpurifier"]
 	path = app/application/vendor/htmlpurifier
 	url = git@github.com:ezyang/htmlpurifier.git
+[submodule "extensions/gii"]
+	path = extensions/gii
+	url = git@github.com:yiisoft/yii2-gii.git
+[submodule "extensions/bootstrap"]
+	path = extensions/bootstrap
+	url = git@github.com:yiisoft/yii2-bootstrap.git
+[submodule "extensions/debug"]
+	path = extensions/debug
+	url = git@github.com:yiisoft/yii2-debug.git
+[submodule "extensions/adminUI"]
+	path = extensions/adminUI
+	url = git@github.com:mithun12000/adminUI.git
+[submodule "extensions/urlasset"]
+	path = extensions/urlasset
+	url = git@github.com:mithun12000/yii2-urlasset.git
+[submodule "extensions/apidoc"]
+	path = extensions/apidoc
+	url = git@github.com:yiisoft/yii2-apidoc.git
+[submodule "extensions/authclient"]
+	path = extensions/authclient
+	url = git@github.com:yiisoft/yii2-authclient.git
+[submodule "extensions/composer"]
+	path = extensions/composer
+	url = git@github.com:yiisoft/yii2-composer.git
+[submodule "extensions/jui"]
+	path = extensions/jui
+	url = git@github.com:yiisoft/yii2-jui.git
