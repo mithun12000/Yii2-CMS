@@ -10,3 +10,6 @@
 [submodule "app/application/vendor/twbs/bootstrap"]
 	path = app/application/vendor/twbs/bootstrap
 	url = git@github.com:twbs/bootstrap.git
+[submodule "app/application/vendor/htmlpurifier"]
+	path = app/application/vendor/htmlpurifier
+	url = git@github.com:ezyang/htmlpurifier.git
