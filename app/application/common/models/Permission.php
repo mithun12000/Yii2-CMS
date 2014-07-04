@@ -18,7 +18,7 @@ use Yii;
  * @property string $updatedOn
  * @property integer $updatedBy
  * @property integer $status
- *
+ * @property integer $type
  * @property Group $group
  * @property User $user
  */
@@ -38,9 +38,9 @@ class Permission extends \common\component\AppActiveRecord
     public function rules()
     {
         return [
-            [['Id', 'createdOn', 'createdBy', 'updatedOn', 'updatedBy', 'status'], 'required'],
-            [['Id', 'userId', 'groupId', 'createdBy', 'updatedBy', 'status'], 'integer'],
-            [['createdOn', 'updatedOn'], 'safe'],
+            [['status', 'type'], 'required'],
+            [['Id', 'userId', 'groupId', 'createdBy', 'updatedBy', 'status', 'type'], 'integer'],
+            [['createdOn', 'createdBy', 'updatedOn', 'updatedBy',], 'safe'],
             [['module', 'controller', 'action'], 'string', 'max' => 45]
         ];
     }
@@ -51,18 +51,24 @@ class Permission extends \common\component\AppActiveRecord
     public function attributeLabels()
     {
         return [
-            'Id' => Yii::t('app', 'ID'),
-            'userId' => Yii::t('app', 'User ID'),
-            'groupId' => Yii::t('app', 'Group ID'),
-            'module' => Yii::t('app', 'Module'),
-            'controller' => Yii::t('app', 'Controller'),
-            'action' => Yii::t('app', 'Action'),
-            'createdOn' => Yii::t('app', 'Created On'),
-            'createdBy' => Yii::t('app', 'Created By'),
-            'updatedOn' => Yii::t('app', 'Updated On'),
-            'updatedBy' => Yii::t('app', 'Updated By'),
-            'status' => Yii::t('app', 'Status'),
+            'Id' => 'Primary Key',
+            'userId' => 'User Id from user table this will be used for user role',
+            'groupId' => 'Group Id fro group permission.',
+            'groupName' => 'Group Name',
+            'module' => 'Module Name',
+            'controller' => 'Controller Name',
+            'action' => 'Action Name',
+            'createdOn' => 'Created On',
+            'createdBy' => 'Created By',
+            'updatedOn' => 'Updated On',
+            'updatedBy' => 'Updated By',
+            'status' => 'Status',
+            'type' => 'Permission Type',
         ];
+    }
+    
+    public function getGroupName() {        
+        return $this->group->name;
     }
 
     /**

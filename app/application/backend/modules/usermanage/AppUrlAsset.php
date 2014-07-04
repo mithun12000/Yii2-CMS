@@ -18,7 +18,7 @@ class AppUrlAsset extends UrlAsset
 {    
     public $url = [
         [
-            [
+            'usermanage'=>[
                 'label' => 'User Manage', 
                 'url' => ['/usermanage/group/index'],
                 'linkOptions'=>[
@@ -58,21 +58,5 @@ class AppUrlAsset extends UrlAsset
         ]
     ];
     
-    public $actionmap = [
-        [
-            'module'    => [
-                [
-                    'name'  => 'Group',
-                    'controller' => [
-                        [
-                            'name' => 'group',
-                            'actions' => ['index','login','logout'],
-                        ]
-                    ],
-                ]
-            ]
-        ]
-    ];
-    
-    public $module = 'usermanage';
+    public $module = ['usermanage'=>'usermanage'];
 }

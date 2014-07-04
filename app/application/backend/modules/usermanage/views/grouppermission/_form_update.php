@@ -16,11 +16,8 @@ use kartik\widgets\DepDrop;
 
     <?php $form = ActiveForm::begin(); ?>
     
-    <?php if(!$model->isNewRecord){ ?>
     <?= $form->field($model, 'status')->dropDownList($model->getStatus(),[]) ?>    
-    <?php }else{ ?>
-    <?= $form->field($model, 'status',['template'=>'{input}','options'=>['class'=>'']])->hiddenInput(['value' => 1])->label('') ?>
-    <?php } ?>
+    
     
     <?= $form->field($model, 'groupId',['template'=>'{input}','options'=>['class'=>'']])->hiddenInput(['value' => Yii::$app->request->get('groupId')])->label('') ?>
     
@@ -62,6 +59,7 @@ use kartik\widgets\DepDrop;
     
     <?= $form->field($model, 'controller')->widget(DepDrop::classname(), [
                                                                             'options'=>['id'=>'controller'],
+                                                                            'data'  => $modulesmap->getControllerList($model->module),
                                                                             'pluginOptions'=>[
                                                                                 'depends'=>['module'],
                                                                                 'placeholder'=>'Select Controller',
@@ -73,6 +71,7 @@ use kartik\widgets\DepDrop;
     
     <?= $form->field($model, 'action')->widget(DepDrop::classname(), [
                                                                             'options'=>['id'=>'actions'],
+                                                                            'data'  => $modulesmap->getActionsList($model->module,$model->controller),
                                                                             'pluginOptions'=>[
                                                                                 'depends'=>['module','controller'],
                                                                                 'placeholder'=>'Select Action',

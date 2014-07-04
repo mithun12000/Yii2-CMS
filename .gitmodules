@@ -40,3 +40,6 @@
 [submodule "extensions/jui"]
 	path = extensions/jui
 	url = git@github.com:yiisoft/yii2-jui.git
+[submodule "extensions/metadata"]
+	path = extensions/metadata
+	url = git@github.com:mithun12000/yii2-metadata.git

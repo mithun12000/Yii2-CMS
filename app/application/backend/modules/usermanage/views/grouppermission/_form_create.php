@@ -16,11 +16,7 @@ use kartik\widgets\DepDrop;
 
     <?php $form = ActiveForm::begin(); ?>
     
-    <?php if(!$model->isNewRecord){ ?>
-    <?= $form->field($model, 'status')->dropDownList($model->getStatus(),[]) ?>    
-    <?php }else{ ?>
     <?= $form->field($model, 'status',['template'=>'{input}','options'=>['class'=>'']])->hiddenInput(['value' => 1])->label('') ?>
-    <?php } ?>
     
     <?= $form->field($model, 'groupId',['template'=>'{input}','options'=>['class'=>'']])->hiddenInput(['value' => Yii::$app->request->get('groupId')])->label('') ?>
     

@@ -8,6 +8,8 @@ use app\models\GroupPermissionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\metadata\component\MetaData;
+use yii\data\ArrayDataProvider;
 
 /**
  * GrouppermissionController implements the CRUD actions for Permission model.
@@ -63,10 +65,11 @@ class GrouppermissionController extends Controller
         $model = new Permission;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->Id]);
+            return $this->redirect(['group/view', 'id' => $model->groupId]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'modulesmap' => new Metadata(),
             ]);
         }
     }
@@ -77,16 +80,17 @@ class GrouppermissionController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($groupId)
+    public function actionUpdate($id,$groupId)
     {
-        $model = $this->findModel($groupId);
-
+        $model = $this->findModel($id);
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->Id]);
+            return $this->redirect(['group/view', 'id' => $model->groupId]);
         } else {
             return $this->render('update', [
                 'model' => $model,
                 'groupId' => $groupId,
+                'modulesmap' => new MetaData(),
             ]);
         }
     }
@@ -97,11 +101,11 @@ class GrouppermissionController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($id,$groupId)
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['group/view', 'id' => $groupId]);
     }
 
     /**
